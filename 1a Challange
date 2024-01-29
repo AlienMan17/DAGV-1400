@@ -1,0 +1,43 @@
+using System;
+
+public class MakeAPerson
+{
+	public static void Main()
+	{
+		string name = "John";
+		int age = 20;
+		bool isMale = true;
+		bool isFemale = false;
+		string gender = "";
+		if (isMale == true)
+		{
+			gender = "Male";
+		}
+		if (isFemale == true)
+		{
+			gender = "Female";
+		}
+		if ((isMale != true) && (isFemale != true))
+		{
+			gender = "other";
+		}
+		
+		Console.WriteLine("This person's name is " + name + " who is " + age + " years old and " + gender + "."); 
+		
+	}
+}
+
+public class UserInputPerson
+{
+	public void MakePerson()
+	{
+		Console.WriteLine("What is the person's name?");
+		string name = Console.ReadLine();
+		Console.WriteLine("What is the person's age?");
+		int age = Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("What is the person's gender?");
+		string gender = Console.ReadLine();
+		Console.WriteLine("You have created a person with the name of " + name + " who is " + age + " years old and " + gender + ".");
+	}
+	
+}
