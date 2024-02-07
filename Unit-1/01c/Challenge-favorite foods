@@ -1,0 +1,16 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string[] favFoods = {"","",""};
+		Console.WriteLine("What are your three favorite foods");
+		for (int i = 0; i <3; i++)
+		{
+			string food = Console.ReadLine();
+			favFoods[i] = food;
+			Console.WriteLine("I love " + food + "!");
+		}
+	}
+}
