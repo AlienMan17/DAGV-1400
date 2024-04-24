@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class LazerMove : MonoBehaviour
+public class MoveForward : MonoBehaviour
 {
 
-    private float speed = 10;
+    public float speed = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,6 @@ public class LazerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-
-
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }
