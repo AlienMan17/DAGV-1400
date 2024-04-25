@@ -7,10 +7,20 @@ public class Enemy : MonoBehaviour
     //define variables
     private float powerupChance;
     public GameObject powerup;
-
+    private PlayerController playerController;
     // Update is called once per frame
+
+    private void Start()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();//gets the playercontroller scripts
+    }
     void Update()
     {
+        if (transform.position.z < -8)
+        {
+            playerController.gameIsActive = false;
+            Debug.Log("Game Over!");
+        }
         
     }
 

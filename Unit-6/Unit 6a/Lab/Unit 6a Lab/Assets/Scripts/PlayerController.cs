@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject lazer;
     public GameObject shield;
     public ParticleSystem explosion;
+    public ParticleSystem pop;
 
     private SpawnManager spawnManager;
 
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;
             Destroy(other.gameObject);
+            pop.Play();
             shield.SetActive(true);
             StartCoroutine(PowerupCountdown());
         }
