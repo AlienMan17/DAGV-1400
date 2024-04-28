@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float xRange = 10;
     public bool hasPowerup;
-    public bool gameIsActive;
     public float ShieldTimer;
     //defines object variables
     public Transform blaster;
@@ -17,22 +16,23 @@ public class PlayerController : MonoBehaviour
     public GameObject shield;
     public ParticleSystem explosion;
     public ParticleSystem pop;
-
-    private SpawnManager spawnManager;
+    //defines scripts
+    private ScoreManager scoreManager;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         //sets values and gets script
-        gameIsActive = true;
         hasPowerup = false;
-        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameIsActive) //Player ony moves if game isn't over
+        if (!gameManager.isGameOver) //Player ony moves if game isn't over
         {
             horizontalInput = Input.GetAxis("Horizontal"); //gets the players input
             transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime); //moves the player side to side based on input
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Instantiate(lazer, blaster.transform.position, lazer.transform.rotation); //if the player presses the spacebar fire a lazer
+                scoreManager.DecreaseScore(1); //decreases score everytime you shoot so the player doesn't spam
             }
         }
 
@@ -58,23 +59,24 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy")) //if the player collides with an enemy explode and set the game to inactive
         {
-            explosion.Play();
-            gameIsActive = false;
+            explosion.Play();//explosion particle effect
+            gameManager.isGameOver = true;//sets game over
             Debug.Log("Game Over!");
         }
         if (other.gameObject.CompareTag("Powerup")) //if the player collides with a powerup activate the shield and destroy the power up
         {
-            hasPowerup = true;
-            Destroy(other.gameObject);
-            pop.Play();
-            shield.SetActive(true);
-            StartCoroutine(PowerupCountdown());
+            hasPowerup = true;//has powerup
+            Destroy(other.gameObject);//destroys powerup
+            scoreManager.IncreaseScore(20);//increases score
+            pop.Play();//play effect
+            shield.SetActive(true);//shows shield
+            StartCoroutine(PowerupCountdown());//starts powerup countdown
         }
     }
 
     IEnumerator PowerupCountdown() //limits the time the powerup is active
     {
-        yield return new WaitForSeconds(ShieldTimer);
-        shield.SetActive(false);
+        yield return new WaitForSeconds(ShieldTimer);//countsdown
+        shield.SetActive(false);//hides shield
     }
 }

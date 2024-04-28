@@ -6,19 +6,23 @@ public class Enemy : MonoBehaviour
 {
     //define variables
     private float powerupChance;
+    public int scoreToAdd;
     public GameObject powerup;
     private PlayerController playerController;
+    private ScoreManager scoreManager;
+    private GameManager gameManager;
     // Update is called once per frame
 
     private void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();//gets the playercontroller scripts
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();//gets the GameManager
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();//gets the ScoreManager script
     }
     void Update()
     {
-        if (transform.position.z < -8)
+        if (transform.position.z < -8) //if the enemy passes the player
         {
-            playerController.gameIsActive = false;
+            gameManager.isGameOver = true;//sets game over
             Debug.Log("Game Over!");
         }
         
@@ -31,6 +35,7 @@ public class Enemy : MonoBehaviour
             powerupChance = Random.Range(1, 11); //gets a random int
             Destroy(other.gameObject); //destroys the lazer
             Destroy(gameObject); //destroys the UFO
+            scoreManager.IncreaseScore(scoreToAdd);
             if (powerupChance == 10) //uses a random int to determine wether or not to spawn a powerup on death
             {
                 Instantiate(powerup, transform.position, powerup.transform.rotation); // instantiates a powerup

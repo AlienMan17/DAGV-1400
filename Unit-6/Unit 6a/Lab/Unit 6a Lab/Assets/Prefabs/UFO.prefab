@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e718830703c61845a7299f3019fc877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreToAdd: 11
   powerup: {fileID: 5751420615081019183, guid: 2077c80ab7aa36f49bd24e50e47d1d90, type: 3}
 --- !u!114 &1979495691934147457
 MonoBehaviour:
