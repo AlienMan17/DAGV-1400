@@ -8,9 +8,19 @@ public class ScoreManager : MonoBehaviour
     //defines variables
     public int score;
     public TextMeshProUGUI scoreText;
+    public AudioClip enemyExplosion;
+    private AudioSource enemyAudio;
 
-    public void IncreaseScore(int amount)
+    private void Start()
     {
+        enemyAudio = GetComponent<AudioSource>();//gets the audio source component
+    }
+    public void IncreaseScore(int amount, bool isEnemy)
+    {
+        if (isEnemy)
+        {
+            enemyAudio.PlayOneShot(enemyExplosion);//playes enemy explosion sound
+        }
         score += amount;//increases score
         UpdateScore();
     }

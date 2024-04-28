@@ -7,11 +7,12 @@ public class Enemy : MonoBehaviour
     //define variables
     private float powerupChance;
     public int scoreToAdd;
+    //defines objects
     public GameObject powerup;
-    private PlayerController playerController;
     private ScoreManager scoreManager;
     private GameManager gameManager;
-    // Update is called once per frame
+    //defines scripts
+    private PlayerController playerController;
 
     private void Start()
     {
@@ -35,15 +36,20 @@ public class Enemy : MonoBehaviour
             powerupChance = Random.Range(1, 11); //gets a random int
             Destroy(other.gameObject); //destroys the lazer
             Destroy(gameObject); //destroys the UFO
-            scoreManager.IncreaseScore(scoreToAdd);
+            scoreManager.IncreaseScore(scoreToAdd, true);//adds to the score value based on the enemy killed, and tells the scoreManager this is an enemy
             if (powerupChance == 10) //uses a random int to determine wether or not to spawn a powerup on death
             {
                 Instantiate(powerup, transform.position, powerup.transform.rotation); // instantiates a powerup
             }
         }
-        else //if it hits the player or the sheild
+        else if(other.gameObject.CompareTag("Shield"))//if it hits the sheild
         {
             Destroy(gameObject); //Destroy this object
+            scoreManager.IncreaseScore(scoreToAdd, true);//adds to the score value based on the enemy blocked, and tells the scoreManager this is an enemy
+        }
+        else
+        {
+            Destroy(gameObject);//destroy the spaceship
         }
     }
 }

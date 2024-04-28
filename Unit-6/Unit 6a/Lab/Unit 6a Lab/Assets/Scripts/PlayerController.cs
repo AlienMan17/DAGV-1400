@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public GameObject shield;
     public ParticleSystem explosion;
     public ParticleSystem pop;
+    public AudioClip explosionSFX;
+    public AudioClip lazerBlast;
+    private AudioSource playerAudio;
     //defines scripts
     private ScoreManager scoreManager;
     private GameManager gameManager;
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
         hasPowerup = false;
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                playerAudio.PlayOneShot(lazerBlast);//plays a sound for the lazer
                 Instantiate(lazer, blaster.transform.position, lazer.transform.rotation); //if the player presses the spacebar fire a lazer
                 scoreManager.DecreaseScore(1); //decreases score everytime you shoot so the player doesn't spam
             }
@@ -59,6 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy")) //if the player collides with an enemy explode and set the game to inactive
         {
+            playerAudio.PlayOneShot(explosionSFX);//plays explosion sound
             explosion.Play();//explosion particle effect
             gameManager.isGameOver = true;//sets game over
             Debug.Log("Game Over!");
@@ -67,7 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;//has powerup
             Destroy(other.gameObject);//destroys powerup
-            scoreManager.IncreaseScore(20);//increases score
+            scoreManager.IncreaseScore(20, false);//increases score, and this is not an enemy
             pop.Play();//play effect
             shield.SetActive(true);//shows shield
             StartCoroutine(PowerupCountdown());//starts powerup countdown
