@@ -8,8 +8,8 @@ public class PlayerContorller : MonoBehaviour
 
     private float speed = 10;
     private Rigidbody playerRb;
-    private float sideBounds = 40;
-    private float vertBounds = 40;
+    float horizontalInput;
+    float verticalInput;
 
     // Start is called before the first frame update
     void Start()
@@ -20,22 +20,8 @@ public class PlayerContorller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //moves if inside the boundry
-        if (Input.GetKey(KeyCode.W) && (transform.position.z < vertBounds))
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A) && (transform.position.x > -sideBounds))
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S) && (transform.position.z > -vertBounds))
-        {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D) && transform.position.x < sideBounds)
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+        transform.Translate((horizontalInput * speed * Time.deltaTime), 0, (verticalInput * speed * Time.deltaTime));
     }
 }
