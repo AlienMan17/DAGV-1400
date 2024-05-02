@@ -2584,12 +2584,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455600421}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8478912, y: -0.89, z: 2.2064981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1168237539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &455600423
 MonoBehaviour:
@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a9c6b15cd6f824d899ad385a27bbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 1.5
   enemy: {fileID: 6921135925184000195, guid: d7fda88b27f0fb2439c036bdc5faeef3, type: 3}
   player: {fileID: 1168237533}
 --- !u!1 &517050725
@@ -7648,7 +7648,8 @@ Transform:
   m_LocalPosition: {x: -1.8478912, y: 0.89, z: -2.2064981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 455600422}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168304574
@@ -13956,6 +13957,5 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1168237539}
-  - {fileID: 455600422}
   - {fileID: 1702656905}
   - {fileID: 1167046261}
