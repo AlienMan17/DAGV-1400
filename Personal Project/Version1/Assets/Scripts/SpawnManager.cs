@@ -16,10 +16,12 @@ public class SpawnManager : MonoBehaviour
     private Vector3 playerPos;
     public GameObject enemy;
     public GameObject player;
+    private PlayerContorller playerContorller;
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 3, spawnRate);
+        playerContorller = GameObject.Find("Player").GetComponent<PlayerContorller>();
     }
 
     // Update is called once per frame
@@ -30,14 +32,17 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Debug.Log("running xrange");
-        xRange = XRangeValue();
-        Debug.Log("running zrange");
-        zRange = ZRangeValue();
-        Debug.Log("Complete");
-        transform.localPosition = new Vector3(Random.Range(-xRange, xRange), 0, Random.Range(-zRange, zRange));
-        enemy.transform.position = transform.position;
-        Instantiate(enemy, transform.position, enemy.transform.rotation);
+        if (playerContorller.isGameActive)
+        {
+            Debug.Log("running xrange");
+            xRange = XRangeValue();
+            Debug.Log("running zrange");
+            zRange = ZRangeValue();
+            Debug.Log("Complete");
+            transform.localPosition = new Vector3(Random.Range(-xRange, xRange), 0, Random.Range(-zRange, zRange));
+            enemy.transform.position = transform.position;
+            Instantiate(enemy, transform.position, enemy.transform.rotation);
+        }
     }
 
 
