@@ -926,6 +926,7 @@ GameObject:
   - component: {fileID: 950257584}
   - component: {fileID: 950257586}
   - component: {fileID: 950257585}
+  - component: {fileID: 950257587}
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: SpawnPoint
@@ -1020,6 +1021,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &950257587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950257583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8796710ba9aa1f94dbf6e9f63151035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 1
 --- !u!1 &1037191834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1037191835}
+  - component: {fileID: 1037191836}
   m_Layer: 0
   m_Name: RoomTemplates
   m_TagString: Rooms
@@ -1051,6 +1066,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037191836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037191834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4de9cf293d4d1428c5340a3dcf647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topRooms:
+  - {fileID: 2340002107166567740, guid: dd495a38ffb47844781823e40dbced0d, type: 3}
+  - {fileID: 4712550077929294485, guid: 9d7667d6590da4e45b822d059d7f23d0, type: 3}
+  - {fileID: 5069288250063325603, guid: 1f9e105ad0198f84fa0bab69961ec183, type: 3}
+  - {fileID: 3530170253729465633, guid: bf2cea3ae56c5c245b2786f36273f93c, type: 3}
+  bottomRooms:
+  - {fileID: 5203657602169687587, guid: d819ce7a770679542ac7979587522b9f, type: 3}
+  - {fileID: 4019307571018801299, guid: d0fafaaed76dda64f8e9965bd0293812, type: 3}
+  - {fileID: 4712550077929294485, guid: 9d7667d6590da4e45b822d059d7f23d0, type: 3}
+  leftRooms:
+  - {fileID: 5023792340139314916, guid: 052289f8ebf924c4eb961633d9bf73e4, type: 3}
+  - {fileID: 4019307571018801299, guid: d0fafaaed76dda64f8e9965bd0293812, type: 3}
+  - {fileID: 1319416883479359476, guid: 16b8efeab43112b4192d304962d7d7bf, type: 3}
+  - {fileID: 5069288250063325603, guid: 1f9e105ad0198f84fa0bab69961ec183, type: 3}
+  rightRooms:
+  - {fileID: 3530170253729465633, guid: bf2cea3ae56c5c245b2786f36273f93c, type: 3}
+  - {fileID: 4383849687644062616, guid: 2badf8772124f5f4d9e75894f97e7f55, type: 3}
+  - {fileID: 1319416883479359476, guid: 16b8efeab43112b4192d304962d7d7bf, type: 3}
 --- !u!1 &1194254393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1191,7 @@ GameObject:
   - component: {fileID: 1306175104}
   - component: {fileID: 1306175106}
   - component: {fileID: 1306175105}
+  - component: {fileID: 1306175107}
   m_Layer: 0
   m_Name: Spawn Point (3)
   m_TagString: SpawnPoint
@@ -1240,6 +1286,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1306175107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306175103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8796710ba9aa1f94dbf6e9f63151035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 2
 --- !u!1 &1329282831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,6 +1453,7 @@ GameObject:
   - component: {fileID: 1375780763}
   - component: {fileID: 1375780765}
   - component: {fileID: 1375780764}
+  - component: {fileID: 1375780766}
   m_Layer: 0
   m_Name: Spawn Point (2)
   m_TagString: SpawnPoint
@@ -1488,6 +1548,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1375780766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375780762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8796710ba9aa1f94dbf6e9f63151035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 4
 --- !u!1 &1380650179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1790,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3019,6 +3092,7 @@ GameObject:
   - component: {fileID: 2099882459}
   - component: {fileID: 2099882461}
   - component: {fileID: 2099882460}
+  - component: {fileID: 2099882462}
   m_Layer: 0
   m_Name: Spawn Point (1)
   m_TagString: SpawnPoint
@@ -3113,6 +3187,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2099882462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099882458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8796710ba9aa1f94dbf6e9f63151035c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

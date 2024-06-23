@@ -6,13 +6,13 @@ public class RoomSpawner : MonoBehaviour
 {
     public int openingDirection;
     private RoomTemplates roomTemplates;
-    int rand;
+    private int rand;
     private bool spawned = false;
 
     void Start()
     {
         roomTemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 1.5f);
     }
 
     // Update is called once per frame
